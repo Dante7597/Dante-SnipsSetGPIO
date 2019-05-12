@@ -16,7 +16,10 @@ CONFIGURATION_ENCODING_FORMAT = "utf-8"
 # led = LED(17)
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
+
 GPIO.setup(17, GPIO.OUT)
+# GPIO.setup(22, GPIO.OUT)										#EINGEFÜGT
+
 # you have to add _snips and _snips-skills to the group gpio
 # sudo adduser _snips gpio
 # sudo adduser _snips-skills gpio
@@ -39,16 +42,16 @@ def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
     # action_wrapper(hermes, intentMessage, conf)
     intentname = intentMessage.intent.intent_name
-    if intentname == "bertron:GPIOhigh":
+    if intentname == "dante7597:GPIOhighDante":
         result_sentence = "Das Licht ist eingeschaltet"
         # led.on()
-        GPIO.output(17,False)
+        GPIO.output(17,True)
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
-    elif intentname == "bertron:GPIOlow":
+    elif intentname == "dante7597:GPIOlowDante":
         result_sentence = "Das Licht ist ausgeschaltet"
         # led.off()
-        GPIO.output(17,True)
+        GPIO.output(17,False)
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
 
