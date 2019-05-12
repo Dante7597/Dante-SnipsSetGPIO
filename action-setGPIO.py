@@ -16,10 +16,7 @@ CONFIGURATION_ENCODING_FORMAT = "utf-8"
 # led = LED(17)
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-
 GPIO.setup(17, GPIO.OUT)
-# GPIO.setup(22, GPIO.OUT)										#EINGEFÜGT
-
 # you have to add _snips and _snips-skills to the group gpio
 # sudo adduser _snips gpio
 # sudo adduser _snips-skills gpio
